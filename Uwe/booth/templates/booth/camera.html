@@ -1,0 +1,71 @@
+{% extends 'booth/base.html'%} {% load static %} {% block content %}
+<div class="flex items-center justify-center flex-col">
+  <video
+    id="camera"
+    autoplay
+    playsinline
+    class="w-[300px] h-[300px] bg-gray-200 rounded-xl object-cover"
+  ></video>
+  <!-- Button -->
+  <div class="mt-10 flex justify-between w-[700px]">
+    <!-- Choose Layout and Camera timer -->
+    <div class="">
+      <div
+        class="bg-[#2C3F56] text-[#F5E0BE] text-[20px] font-semibold px-[40px] py-[7px] rounded-[15px] font-[Poppin]"
+      >
+        Choose Camera Layout
+      </div>
+      <div class="flex space-x-3 justify-center mt-3">
+        <div
+          class="layout-btn text-[20px] font-semibold px-[15px] py-[5px] font-[Poppin] border border-2 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#23c483] hover:text-white hover:shadow-[0px_15px_20px_rgba(46,229,157,0.4)] hover:-translate-y-[7px] active:-translate-y-[1px]"
+          data-layout="2x2"
+        >
+          2 x 2
+        </div>
+        <div
+          class="layout-btn text-[20px] font-semibold px-[15px] py-[5px] font-[Poppin] border border-2 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#23c483] hover:text-white hover:shadow-[0px_15px_20px_rgba(46,229,157,0.4)] hover:-translate-y-[7px] active:-translate-y-[1px]"
+          data-layout="4x4"
+        >
+          4 x 4
+        </div>
+        <div
+          class="layout-btn text-[20px] font-semibold px-[15px] py-[5px] font-[Poppin] border border-2 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#23c483] hover:text-white hover:shadow-[0px_15px_20px_rgba(46,229,157,0.4)] hover:-translate-y-[7px] active:-translate-y-[1px]"
+          data-layout="6x4"
+        >
+          4 x 6
+        </div>
+      </div>
+    </div>
+    <!--Timer -->
+    <div>
+      <div
+        class="bg-[#2C3F56] text-[#F5E0BE] text-[20px] font-semibold px-[40px] py-[7px] rounded-[15px] font-[Poppin]"
+      >
+        Camera Timer
+      </div>
+      <div
+        class="w-[125px] text-[20px] font-semibold px-[15px] py-[5px] font-[Poppin] border border-2 mt-3 cursor-pointer appearance-none bg-transparent focus:outline-none"
+      >
+        <form>
+          <select>
+            <option value="">3s</option>
+            <option value="">5s</option>
+            <option value="">10s</option>
+            <option value="">No Timer</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="bg-[#D75A4B] text-[#F5E0BE] text-[20px] font-semibold px-[30px] py-[7px] rounded-[15px] font-[Poppin] mt-10 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#23c483] hover:text-white hover:shadow-[0px_15px_20px_rgba(46,229,157,0.4)] hover:-translate-y-[7px] active:-translate-y-[1px]"
+  >
+    Take Photo
+  </button>
+</div>
+
+{% load static %}
+
+<script src="{% static 'booth/js/camera.js' %}"></script>
+{% endblock %}

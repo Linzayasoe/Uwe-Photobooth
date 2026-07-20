@@ -1,1 +1,45 @@
-<h1>Hiii</h1>
+{% extends 'booth/base.html'%} {% load static %}{% block content %}
+<div class="flex justify-center">
+  <div
+    class="w-[1040px] h-[600px] bg-[#F5E0BE] rounded-[40px] flex justify-start items-center relative"
+  >
+    <div class="space-y-5">
+      <p
+        style="font-family: &quot;Shantell Sans&quot;"
+        class="w-[50px] text-[64px] font-extrabold text-[#D75A4B] leading-20 mt-5 pl-10"
+      >
+        UWE Photobooth
+      </p>
+      <img
+        class="w-[375px]"
+        src="{% static 'booth/images/cute_pic.png' %}"
+        alt="cute_pic"
+      />
+    </div>
+    <div class="flex flex-col items-center mt-30">
+      <p
+        style="font-family: &quot;Shantell Sans&quot;"
+        class="text-[24px] font-semibold text-[#2C3F56] mb-10"
+      >
+        Your custest moment starts here!!
+      </p>
+      <button
+        class="px-7 py-3 text-[20px] text-[#F5E0BE] bg-[#D75A4B] rounded-[15px] animate-bounce hover:bg-[#C24F43] cursor-pointer"
+      >
+        Get Started
+      </button>
+    </div>
+    <img
+      class="w-[250px] absolute right-0 top-0"
+      src="{% static 'booth/images/photo_frame1.png' %}"
+      alt="photo_frame"
+    />
+    <img
+      class="w-[300px] absolute right-0 bottom-0 rounded-[40px]"
+      src="{% static 'booth/images/photo_frame2.png' %}"
+      alt="photo_frame"
+    />
+  </div>
+</div>
+
+{% endblock%}
