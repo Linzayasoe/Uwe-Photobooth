@@ -6,6 +6,8 @@
     playsinline
     class="w-[300px] h-[300px] bg-gray-200 rounded-xl object-cover"
   ></video>
+  <canvas id="canvas" class="hidden"></canvas>
+
   <!-- Button -->
   <div class="mt-10 flex justify-between w-[700px]">
     <!-- Choose Layout and Camera timer -->
@@ -59,11 +61,22 @@
   </div>
 
   <button
+    id="takephoto"
     class="bg-[#D75A4B] text-[#F5E0BE] text-[20px] font-semibold px-[30px] py-[7px] rounded-[15px] font-[Poppin] mt-10 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#23c483] hover:text-white hover:shadow-[0px_15px_20px_rgba(46,229,157,0.4)] hover:-translate-y-[7px] active:-translate-y-[1px]"
   >
     Take Photo
   </button>
 </div>
+
+<dialog id="photoDialog" class="rounded-xl p-5">
+  <img id="capturedImage" class="w-[400px] h-[400px] object-cover rounded-xl" />
+
+  <div class="flex justify-center mt-5">
+    <button id="closeDialog" class="bg-red-500 text-white px-5 py-2 rounded-xl">
+      Close
+    </button>
+  </div>
+</dialog>
 
 {% load static %}
 

@@ -1,8 +1,13 @@
 const camera = document.getElementById("camera");
 const layoutButtons = document.querySelectorAll(".layout-btn");
-
 // Open camera accesss
 const video = document.getElementById("camera");
+const canvas = document.getElementById("canvas");
+const takePhoto = document.getElementById("takephoto");
+
+const photoDialog = document.getElementById("photoDialog");
+const capturedImage = document.getElementById("capturedImage");
+const closeDialog = document.getElementById("closeDialog");
 
 async function startCamera() {
   try {
@@ -56,4 +61,31 @@ layoutButtons.forEach((button) => {
       "shadow-[0px_15px_20px_rgba(46,229,157,0.4)]",
     );
   });
+});
+
+let photos = []; //temporary storage for storing photos
+
+takePhoto.addEventListener("click", () => {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  const context = canvas.getContext("2d"); //get camera frame
+
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // convert pixels to img
+  canvas.toBlob((blob) => {
+    const img_url = URL.createObjectURL(blob);
+
+    photos.push(img_url);
+    capturedImage.src = img_url;
+
+    photoDialog.showModal();
+  }, "image/jpeg");
+});
+console.log(photos);
+
+// close the model
+closeDialog.addEventListener("click", () => {
+  photoDialog.close();
 });
